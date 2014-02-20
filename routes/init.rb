@@ -1,0 +1,13 @@
+# encoding: utf-8
+require_relative 'main'
+require_relative 'playground'
+require_relative 'ec2costs'
+require_relative 'graphfind'
+require_relative 'apacsin'
+require_relative 'apacsyd'
+require_relative 'apactokyo'
+require_relative 'euireland'
+require_relative 'saeast1'
+require_relative 'useast'
+require_relative 'uswest'
+require_relative 'uswest2'

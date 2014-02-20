@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="578.16" height="361.35" viewBox="0,0,578.16,361.35">
+<desc>R SVG Plot!</desc>
+<rect width="100%" height="100%" style="fill:#FFFFFF"/>
+<polyline points="53.67 , 308.31 541.16 , 44.71 " style="stroke-width:1;stroke:#FF0000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<line x1="53.67" y1="318.85" x2="454.35" y2="318.85" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<line x1="53.67" y1="318.85" x2="53.67" y2="323.02" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<line x1="187.23" y1="318.85" x2="187.23" y2="323.02" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<line x1="320.79" y1="318.85" x2="320.79" y2="323.02" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<line x1="454.35" y1="318.85" x2="454.35" y2="323.02" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<text transform="translate(51.17,335.52)"  style="font-size:10" >0</text>
+<text transform="translate(178.98,335.52)"  style="font-size:10" >100</text>
+<text transform="translate(312.54,335.52)"  style="font-size:10" >200</text>
+<text transform="translate(446.10,335.52)"  style="font-size:10" >300</text>
+<line x1="34.17" y1="308.31" x2="34.17" y2="41.68" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<line x1="34.17" y1="308.31" x2="30.00" y2="308.31" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<line x1="34.17" y1="270.22" x2="30.00" y2="270.22" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<line x1="34.17" y1="232.13" x2="30.00" y2="232.13" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<line x1="34.17" y1="194.04" x2="30.00" y2="194.04" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<line x1="34.17" y1="155.95" x2="30.00" y2="155.95" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<line x1="34.17" y1="117.86" x2="30.00" y2="117.86" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<line x1="34.17" y1="79.77" x2="30.00" y2="79.77" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<line x1="34.17" y1="41.68" x2="30.00" y2="41.68" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<text transform="translate(25.83,311.06) rotate(-90)"  style="font-size:10" >0</text>
+<text transform="translate(25.83,278.47) rotate(-90)"  style="font-size:10" >200</text>
+<text transform="translate(25.83,240.38) rotate(-90)"  style="font-size:10" >400</text>
+<text transform="translate(25.83,202.29) rotate(-90)"  style="font-size:10" >600</text>
+<text transform="translate(25.83,164.20) rotate(-90)"  style="font-size:10" >800</text>
+<text transform="translate(25.83,128.86) rotate(-90)"  style="font-size:10" >1000</text>
+<text transform="translate(25.83,90.77) rotate(-90)"  style="font-size:10" >1200</text>
+<text transform="translate(25.83,52.68) rotate(-90)"  style="font-size:10" >1400</text>
+<polyline points="34.17 , 318.85 560.66 , 318.85 560.66 , 34.17 34.17 , 34.17 34.17 , 318.85 " style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<text transform="translate(285.58,352.18)"  style="font-size:10" >Time</text>
+<text transform="translate(9.17,204.98) rotate(-90)"  style="font-size:10" >cost ($USD)</text>
+<text transform="translate(146.48,17.08)"  style="font-size:12" >Utilization: light Region: apac-syd Instance: m3.medium</text>
+<text transform="translate(148.80,27.08)"  style="font-size:12" >year3 term is cheaper than on-demand after 89 days of usage</text>
+<text transform="translate(83.55,304.14)"  style="font-size:10" >on-demand=$0.16/hour</text>
+<line x1="34.17" y1="276.54" x2="560.66" y2="152.21" style="stroke-width:1;stroke:#00FF00;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<text transform="translate(68.29,267.76)"  style="font-size:10" >Reserved=$191+$0.07/hour</text>
+<circle cx="173.10" cy="243.73" r="2.34" style="stroke-width:1;stroke:#000000;fill:#FFFFFF;stroke-opacity:1.000000;fill-opacity:0.000000" />
+<text transform="translate(156.28,252.06)"  style="font-size:10" >89 days</text>
+</svg>

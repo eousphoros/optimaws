@@ -1,0 +1,16 @@
+%h1= @loc
+%br
+%h2 Reserved instance count
+- @reserved.each do |key,value| 
+  %p= key unless key.nil?
+  - value.each do |k,v|
+    %div=  "#{k}: #{v}" unless v.nil?
+%br
+%h2 Running instances
+- @output.each do |instance, values| 
+  %h3= "InstanceID: #{instance}"
+  %p= "InstanceType: #{values['instancetype']}, Region: #{values['region']}"
+  - values['tags'].each do |key,tags| 
+    %p= "Tag: #{key}, Value: #{tags}"
+  - GraphFind.all(values['instancetype'], values['region']).each do |file| 
+    %object{ :type => "image/svg+xml", :data => "/assets/#{file}", :width => "500", :height => "500"}
