@@ -1,4 +1,4 @@
 optimaws
 ========
 
-Dumping ground for the beginnings of an open source AWS cost visualization tool
+Dumping ground for aws tooling written using sinatra, fog, and ruby
