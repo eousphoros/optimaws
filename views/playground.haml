@@ -13,4 +13,4 @@
   - values['tags'].each do |key,tags| 
     %p= "Tag: #{key}, Value: #{tags}"
   - GraphFind.all(values['instancetype'], values['region']).each do |file| 
-    %object{ :type => "image/svg+xml", :data => "/assets/#{file}", :width => "500", :height => "500"}
+    %object{ :type => "image/svg+xml", :data => "/assets/#{file}", :width => "250", :height => "250"}

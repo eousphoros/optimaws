@@ -3,7 +3,7 @@
 require 'find'
 
 module GraphFind
-  RegionLookup = {
+  REGION_LOOKUP = {
     'us-east-1'      => 'useast',
     'us-west-1'      => 'uswest',
     'us-west-2'      => 'uswest2',
@@ -14,7 +14,7 @@ module GraphFind
     'sa-east-1'      => 'saeast1' }
 
   def get_region(name)
-    RegionLookup[name] || name
+    REGION_LOOKUP[name] || name
   end
 
   def all(type, region)
@@ -22,8 +22,14 @@ module GraphFind
     find = "*#{get_region(region)}*#{type.gsub('.', '')}*"
     puts get_region(region)
     puts type.gsub('.', '')
-    Dir.chdir('/opt/nginx/html/optimaws/current/public/assets/')
+    searchdir = "#{Dir.pwd}/public/assets/"
+    puts searchdir
+    unless Dir.exists?(searchdir)
+      return found = {}
+    end
+    Dir.chdir(searchdir)
     found = Dir.glob(find)
+    Dir.chdir('../..')
     found
   end
   module_function :all
