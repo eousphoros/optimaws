@@ -45,13 +45,15 @@ module EC2Compute
     reserved = compute.describe_reserved_instances
 
     reserved.body['reservedInstancesSet'].each do |key|
-      term = key['duration'].to_i / 2_628_000
-      reservedinfo[reservedInstanceId: key['reservedInstancesId']] = {
-                                    availabilityZone: key['availabilityZone'],
-                                    instanceType: key['instanceType'],
-                                    offeringType: key['offeringType'],
-                                    instanceCount: key['instanceCount'],
-                                    duration: term }
+      unless key['reservedInstancesId'].nil?
+        term = key['duration'].to_i / 2_628_000
+        reservedinfo[reservedInstanceId: key['reservedInstancesId']] = {
+                                      availabilityZone: key['availabilityZone'],
+                                      instanceType: key['instanceType'],
+                                      offeringType: key['offeringType'],
+                                      instanceCount: key['instanceCount'],
+                                      duration: term }
+      end
     end
     reservedinfo
   end
