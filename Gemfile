@@ -1,3 +1,5 @@
+source 'https://rubygems.org'
+
 gem 'amazon-pricing'
 gem 'fog'
 gem 'haml' 
