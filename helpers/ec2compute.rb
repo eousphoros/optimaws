@@ -45,7 +45,7 @@ module EC2Compute
     reserved = compute.describe_reserved_instances
 
     reserved.body['reservedInstancesSet'].each do |key|
-      term = key['duration'].to_i / 2628000
+      term = key['duration'].to_i / 2_628_000
       reservedinfo[reservedInstanceId: key['reservedInstancesId']] = {
                                     availabilityZone: key['availabilityZone'],
                                     instanceType: key['instanceType'],
@@ -53,7 +53,7 @@ module EC2Compute
                                     instanceCount: key['instanceCount'],
                                     duration: term }
     end
-    return reservedinfo
+    reservedinfo
   end
   module_function :all
   module_function :reserved
