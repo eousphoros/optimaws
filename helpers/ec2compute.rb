@@ -20,25 +20,25 @@ module EC2Compute
   end
 
   def all(region)
-    puts "#{region} called by playground"
+    puts "all #{region} called"
     serverinfo = hashtree
     return serverinfo unless RegionLookup.include?(region)
     compute = Fog::Compute.new(provider: 'AWS', use_iam_profile: true, region: region)
     result = compute.servers.all
 
     result.each do |server|
-       serverid = server.id
-       serverinfo[serverid]['instancetype'] = server.flavor_id
-       serverinfo[serverid]['region'] = server.availability_zone[0..-2]
-       server.tags.each do |key, tag|
-         serverinfo[serverid]['tags'][key] = tag
-       end
+      serverid = server.id
+      serverinfo[serverid]['instancetype'] = server.flavor_id
+      serverinfo[serverid]['region'] = server.availability_zone[0..-2]
+      server.tags.sort.each do |key, tag|
+        serverinfo[serverid]['tags'][key] = tag
+      end
     end
     serverinfo
   end
 
   def reserved(region)
-    puts "#{region} called by playground"
+    puts "reserved #{region} called"
     reservedinfo = hashtree
     return reservedinfo unless RegionLookup.include?(region)
     compute = Fog::Compute.new(provider: 'AWS', use_iam_profile: true, region: region)
