@@ -2,12 +2,13 @@
 %br
 %h2 Reserved instances
 - @reserved.each do |key,value| 
-  %p= "ReservedID: #{key} InstanceID: #{value['instanceid']}"
+  %h4= "ReservedID: #{key}"
+  %p= "InstanceID: #{value['instanceid']} Duration: #{value['duration']} months @ #{value['offeringType']}"
   %br
 %br
 %h2 Running instances
 - @output.each do |instance, values| 
-  %h3= "InstanceID: #{instance}"
+  %h4= "InstanceID: #{instance}"
   %p= "InstanceType: #{values['instancetype']}, Region: #{values['region']}"
   - values['tags'].each do |key,tags| 
     %p= "Tag: #{key}, Value: #{tags}"
