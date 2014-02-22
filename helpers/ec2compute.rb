@@ -3,7 +3,7 @@
 require 'fog'
 
 module EC2Compute
-  RegionLookup = Set[
+  REGION_LOOKUP = Set[
     'us-east-1',
     'us-west-1',
     'us-west-2',
@@ -20,11 +20,14 @@ module EC2Compute
   end
 
   def all(region)
+    return serverinfo unless REGION_LOOKUP.include?(region)
+
     puts "all #{region} called"
-    serverinfo = hashtree
-    return serverinfo unless RegionLookup.include?(region)
+
     compute = Fog::Compute.new(provider: 'AWS', use_iam_profile: true, region: region)
+
     result = compute.servers.all
+    serverinfo = hashtree
 
     result.each do |server|
       serverid = server.id
@@ -42,15 +45,27 @@ module EC2Compute
   end
 
   def reserved(region)
+    return reservedinfo unless REGION_LOOKUP.include?(region)
+
     puts "reserved #{region} called"
-    reservedinfo = hashtree
-    serverlist = EC2Compute.all(region)
-    return reservedinfo unless RegionLookup.include?(region)
+
     compute = Fog::Compute.new(provider: 'AWS', use_iam_profile: true, region: region)
+
     reserved = compute.describe_reserved_instances
+    reservedinfo = hashtree
+
+    serverlist = EC2Compute.all(region)
 
     reserved.body['reservedInstancesSet'].each do |key|
       unless key['reservedInstancesId'].nil?
+        term = key['duration'].to_i / 2_628_000
+
+        reservedinfo[key['reservedInstancesId']]['availabilityZone'] = key['availabilityZone']
+        reservedinfo[key['reservedInstancesId']]['instanceType'] = key['instanceType']
+        reservedinfo[key['reservedInstancesId']]['offeringType'] = key['offeringType']
+        reservedinfo[key['reservedInstancesId']]['instanceCount'] = key['instanceCount']
+        reservedinfo[key['reservedInstancesId']]['duration'] = term
+        reservedinfo[key['reservedInstancesId']]['instanceid'] = @reservedinstance
 
         serverlist.each do |instance, values|
           if values['availabilityzone'] == key['availabilityZone'] && values['instancetype'] == key['instanceType'] && key['instanceCount'].to_i > 0
@@ -58,15 +73,6 @@ module EC2Compute
             @reservedinstance = instance
           end
         end
-
-        term = key['duration'].to_i / 2_628_000
-
-        reservedinfo[key['reservedinstancesid']]['availabilityZone'] = key['availabilityZone']
-        reservedinfo[key['reservedinstancesid']]['instanceType'] = key['instanceType']
-        reservedinfo[key['reservedinstancesid']]['offeringType'] = key['offeringType']
-        reservedinfo[key['reservedinstancesid']]['instanceCount'] = key['instanceCount']
-        reservedinfo[key['reservedinstancesid']]['duration'] = term
-        reservedinfo[key['reservedinstancesid']]['instanceid'] = @reservedinstance
       end
     end
     reservedinfo
