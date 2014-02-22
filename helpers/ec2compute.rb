@@ -47,20 +47,30 @@ module EC2Compute
     serverinfo
   end
 
+  def assign_reserved(key, reservedinfo, region)
+    serverlist = EC2Compute.all(region)
+
+    serverlist.each do |instance, values|
+      reservedinfo[key['reservedInstancesId']]['instanceid'] = 'Unused'
+      if values['availabilityzone'] == key['availabilityZone'] && values['instancetype'] == key['instanceType']
+        key['instanceCount'] -= 1
+        reservedinfo[key['reservedInstancesId']]['instanceid'] = instance
+      end
+    end
+    reservedinfo
+  end
+
   def reserved(region)
     return reservedinfo unless REGION_LOOKUP.include?(region)
 
     puts "reserved #{region} called"
 
     compute = Fog::Compute.new(provider: 'AWS', use_iam_profile: true, region: region)
-
     reserved = compute.describe_reserved_instances
     reservedinfo = hashtree
 
-    serverlist = EC2Compute.all(region)
-
     reserved.body['reservedInstancesSet'].each do |key|
-      unless key['reservedInstancesId'].nil? or key['instanceCount'].to_i <= 0
+      unless key['reservedInstancesId'].nil? || key['instanceCount'].to_i <= 0
         if key['state'].to_s == 'active'
           term = key['duration'].to_i / 2_628_000
 
@@ -69,14 +79,7 @@ module EC2Compute
           reservedinfo[key['reservedInstancesId']]['offeringType'] = key['offeringType']
           reservedinfo[key['reservedInstancesId']]['instanceCount'] = key['instanceCount']
           reservedinfo[key['reservedInstancesId']]['duration'] = term
-
-          serverlist.each do |instance, values|
-            reservedinfo[key['reservedInstancesId']]['instanceid'] = 'Unused'
-            if values['availabilityzone'] == key['availabilityZone'] && values['instancetype'] == key['instanceType']
-              key['instanceCount'] -= 1
-              reservedinfo[key['reservedInstancesId']]['instanceid'] = instance
-            end
-          end
+          reservedinfo = EC2Compute.assign_reserved(key, reservedinfo, region)
         end
       end
     end
@@ -84,5 +87,6 @@ module EC2Compute
   end
   module_function :all
   module_function :reserved
+  module_function :assign_reserved
   module_function :hashtree
 end
