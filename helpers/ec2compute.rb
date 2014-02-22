@@ -22,14 +22,10 @@ module EC2Compute
   def all(region)
     return serverinfo unless REGION_LOOKUP.include?(region)
 
-    puts "all #{region} called"
-
     compute = Fog::Compute.new(provider: 'AWS', use_iam_profile: true, region: region)
 
     result = compute.servers.all
     serverinfo = hashtree
-
-    puts result.inspect
 
     result.each do |server|
       if server.state.to_s == 'running'
@@ -62,8 +58,6 @@ module EC2Compute
 
   def reserved(region)
     return reservedinfo unless REGION_LOOKUP.include?(region)
-
-    puts "reserved #{region} called"
 
     compute = Fog::Compute.new(provider: 'AWS', use_iam_profile: true, region: region)
     reserved = compute.describe_reserved_instances
