@@ -3,7 +3,9 @@
 %h2 Reserved instances
 - @reserved.each do |key,value| 
   %h4= "ReservedID: #{key}"
-  %p= "InstanceID: #{value['instanceid']} Duration: #{value['duration']} months @ #{value['offeringType']}"
+  %p= "InstanceID: #{value['instanceid']} Commit: #{value['duration']} year Usage: #{value['offeringType']}"
+  - GraphFind.get_graphs(value['instanceType'], value['availabilityZone'][0..-2], "year#{value['duration']}", value['offeringType']).each do |file| 
+    %object{ :type => "image/svg+xml", :data => "/assets/#{file}", :width => "500", :height => "250"}
   %br
 %br
 %h2 Running instances
@@ -12,5 +14,5 @@
   %p= "InstanceType: #{values['instancetype']}, Region: #{values['region']}"
   - values['tags'].each do |key,tags| 
     %p= "Tag: #{key}, Value: #{tags}"
-  - GraphFind.all(values['instancetype'], values['region']).each do |file| 
-    %object{ :type => "image/svg+xml", :data => "/assets/#{file}", :width => "250", :height => "250"}
+  - GraphFind.get_graphs(values['instancetype'], values['region'], '*', '*').each do |file| 
+    %object{ :type => "image/svg+xml", :data => "/assets/#{file}", :width => "500", :height => "250"}

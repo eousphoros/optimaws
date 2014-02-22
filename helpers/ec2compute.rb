@@ -62,11 +62,13 @@ module EC2Compute
     compute = Fog::Compute.new(provider: 'AWS', use_iam_profile: true, region: region)
     reserved = compute.describe_reserved_instances
     reservedinfo = hashtree
+    puts reserved.inspect
 
     reserved.body['reservedInstancesSet'].each do |key|
       unless key['reservedInstancesId'].nil? || key['instanceCount'].to_i <= 0
         if key['state'].to_s == 'active'
-          term = key['duration'].to_i / 2_628_000
+
+          term = ((key['duration'].to_i / 2_628_000).to_f / 12).ceil
 
           reservedinfo[key['reservedInstancesId']]['availabilityZone'] = key['availabilityZone']
           reservedinfo[key['reservedInstancesId']]['instanceType'] = key['instanceType']

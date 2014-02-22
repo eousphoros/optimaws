@@ -17,13 +17,13 @@ module GraphFind
     REGION_LOOKUP[name] || name
   end
 
-  def all(type, region)
-    puts "#{type} #{region} called by GraphFind"
-    find = "*#{get_region(region)}*#{type.gsub('.', '')}*"
-    puts get_region(region)
-    puts type.gsub('.', '')
+  def get_graphs(type, region, term, util)
+    util = util.gsub('Heavy Utilization', 'heavy')
+    util = util.gsub('Medium Utilization', 'medium')
+    util = util.gsub('Light Utilization', 'light')
+    find = "#{get_region(region)}#{term}#{util}#{type.gsub('.', '')}.svg"
+    puts "#{get_region(region)}#{term}#{util}#{type.gsub('.', '')}.svg"
     searchdir = "#{Dir.pwd}/public/assets/"
-    puts searchdir
     unless Dir.exists?(searchdir)
       return found = {}
     end
@@ -32,6 +32,6 @@ module GraphFind
     Dir.chdir('../..')
     found
   end
-  module_function :all
+  module_function :get_graphs
   module_function :get_region
 end
