@@ -2,9 +2,8 @@
 %br
 %h2 Reserved instance count
 - @reserved.each do |key,value| 
-  %p= key unless key.nil?
-  - value.each do |k,v|
-    %div=  "#{k}: #{v}" unless v.nil?
+  %p= "ReservedID: #{key} InstanceID: #{value['instanceid']}"
+  %br
 %br
 %h2 Running instances
 - @output.each do |instance, values| 
