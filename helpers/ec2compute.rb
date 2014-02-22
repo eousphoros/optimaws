@@ -29,17 +29,20 @@ module EC2Compute
     result = compute.servers.all
     serverinfo = hashtree
 
+    puts result.inspect
+
     result.each do |server|
-      serverid = server.id
-      availabilityzone = server.availability_zone
-      serverinfo[serverid]['instancetype'] = server.flavor_id
-      serverinfo[serverid]['region'] = availabilityzone[0..-2]
-      serverinfo[serverid]['availabilityzone'] = availabilityzone
+      if server.state.to_s == 'running'
+        serverid = server.id
+        availabilityzone = server.availability_zone
+        serverinfo[serverid]['instancetype'] = server.flavor_id
+        serverinfo[serverid]['region'] = availabilityzone[0..-2]
+        serverinfo[serverid]['availabilityzone'] = availabilityzone
 
-      server.tags.sort.each do |key, tag|
-        serverinfo[serverid]['tags'][key] = tag
+        server.tags.sort.each do |key, tag|
+          serverinfo[serverid]['tags'][key] = tag
+        end
       end
-
     end
     serverinfo
   end
@@ -57,20 +60,21 @@ module EC2Compute
     serverlist = EC2Compute.all(region)
 
     reserved.body['reservedInstancesSet'].each do |key|
-      unless key['reservedInstancesId'].nil?
-        term = key['duration'].to_i / 2_628_000
+      unless key['reservedInstancesId'].nil? or key['instanceCount'].to_i <= 0
+        if key['state'].to_s == 'active'
+          term = key['duration'].to_i / 2_628_000
 
-        reservedinfo[key['reservedInstancesId']]['availabilityZone'] = key['availabilityZone']
-        reservedinfo[key['reservedInstancesId']]['instanceType'] = key['instanceType']
-        reservedinfo[key['reservedInstancesId']]['offeringType'] = key['offeringType']
-        reservedinfo[key['reservedInstancesId']]['instanceCount'] = key['instanceCount']
-        reservedinfo[key['reservedInstancesId']]['duration'] = term
-        reservedinfo[key['reservedInstancesId']]['instanceid'] = @reservedinstance
+          reservedinfo[key['reservedInstancesId']]['availabilityZone'] = key['availabilityZone']
+          reservedinfo[key['reservedInstancesId']]['instanceType'] = key['instanceType']
+          reservedinfo[key['reservedInstancesId']]['offeringType'] = key['offeringType']
+          reservedinfo[key['reservedInstancesId']]['instanceCount'] = key['instanceCount']
+          reservedinfo[key['reservedInstancesId']]['duration'] = term
 
-        serverlist.each do |instance, values|
-          if values['availabilityzone'] == key['availabilityZone'] && values['instancetype'] == key['instanceType'] && key['instanceCount'].to_i > 0
-            key['instanceCount'] -= 1
-            @reservedinstance = instance
+          serverlist.each do |instance, values|
+            if values['availabilityzone'] == key['availabilityZone'] && values['instancetype'] == key['instanceType']
+              key['instanceCount'] -= 1
+              reservedinfo[key['reservedInstancesId']]['instanceid'] = instance
+            end
           end
         end
       end
