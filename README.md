@@ -11,4 +11,4 @@ $ gem install bundle; bundle install
 Live Demo
 =========
 
-http://optimaws.blck.io/
+https://optimaws.blck.io/
