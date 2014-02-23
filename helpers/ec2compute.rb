@@ -47,7 +47,7 @@ module EC2Compute
     serverlist = EC2Compute.all(region)
 
     serverlist.each do |instance, values|
-      reservedinfo[key['reservedInstancesId']]['instanceid'] = 'Unused'
+#      reservedinfo[key['reservedInstancesId']]['instanceid'] = 'Unused'
       if values['availabilityzone'] == key['availabilityZone'] && values['instancetype'] == key['instanceType']
         key['instanceCount'] -= 1
         reservedinfo[key['reservedInstancesId']]['instanceid'] = instance

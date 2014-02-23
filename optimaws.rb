@@ -5,7 +5,7 @@ require 'sinatra/graph'
 
 require_relative 'minify_resources'
 class Optimaws < Sinatra::Application
-	enable :sessions
+	#enable :sessions
 
 	configure :production do
 		set :haml,  ugly: true
