@@ -1,7 +1,7 @@
 # encoding: utf-8
 class Optimaws < Sinatra::Application
 	get '/apactokyo' do
-		@title = 'Optimaws'
+		@title = 'OptimAWS'
 		haml :apactokyo
 	end
 end

@@ -2,7 +2,7 @@
 class Optimaws < Sinatra::Application
   get '/playground/:region' do
     pass if request.path_info == '/playground/favicon.ico'
-    @title    = 'Optimaws'
+    @title = 'OptimAWS'
     @output   = EC2Compute.all(params[:region])
     @reserved = EC2Compute.reserved(params[:region])
     @loc      = params[:region]
@@ -11,7 +11,7 @@ class Optimaws < Sinatra::Application
 
   get '/playground' do
     pass if request.path_info == '/playground/favicon.ico'
-    @title    = 'Optimaws'
+    @title = 'OptimAWS'
     @output   = EC2Compute.all('us-west-2')
     @reserved = EC2Compute.reserved('us-west-2')
     @loc      = 'us-west-2'
@@ -19,7 +19,7 @@ class Optimaws < Sinatra::Application
   end
 
   post '/playground' do
-    @title    = 'Optimaws'
+    @title = 'OptimAWS'
     @output   = EC2Compute.all(params[:region])
     @reserved = EC2Compute.reserved(params[:region])
     @loc      = params[:region]
