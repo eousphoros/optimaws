@@ -22,7 +22,7 @@
           %ul.nav.navbar-nav.navbar-right
             %li.dropdown.box-shadow.transition.border-radius
               %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-                Regions
+                Graphs
                 %b.caret
               %ul.dropdown-menu
                 %li
@@ -48,16 +48,18 @@
               %ul.dropdown-menu
                 %li
                   %a.text-center{href: '/ec2costs'} Instance Costs JSON
+                  %hr
                 %li
-                  %p.text-center AWS Region?
                   %form{"accept-charset" => "UTF-8", action: "/playground", method: "post"}
-                    %input#region{name: "region", size: "25", style: "margin-bottom: 15px;", type: "text", required: "required"}/
-                    %input.btn.btn-primary.border-radius{name: "commit", style: "clear: left; width: 100%; height: 32px; font-size: 13px;", type: "submit", value: "Search"}/
+                    %input#region.border-radius{name: "region", size: "25", type: "text", required: "required", placeholder: 'AWS Region'}/
+                    %input.btn.btn-default.border-radius.pull-right{name: "commit", type: "submit", value: "Search"}/
         / /.nav-collapse
     %ul.nav.nav-tabs
       %li.active
         %a{"data-toggle" => "tab", href: "/#{@loc}"}= @loc
     #content= yield
+    %div.footer.pull-right
+      %a{href: 'mailto:ptrck@blck.io'} ptrck@blck.io
     %script{src: "//code.jquery.com/jquery-1.10.2.min.js"}
     %script{src: "//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"}
     %link{href: "//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css", rel: "stylesheet"}/

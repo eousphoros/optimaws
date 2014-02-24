@@ -3,7 +3,6 @@
   %p= "InstanceID: #{value['instanceid']} Commit: #{value['duration']} year Usage: #{value['offeringType']}"
   - GraphFind.get_graphs(value['instanceType'], value['availabilityZone'][0..-2], "year#{value['duration']}", value['offeringType']).each do |file| 
     %object{ :type => "image/svg+xml", :data => "/assets/#{file}", :width => "500", :height => "250"}
-  %br
 %br
 %hr
 - @output.each do |instance, values| 
