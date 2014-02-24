@@ -52,6 +52,7 @@
                 %li
                   %form{"accept-charset" => "UTF-8", action: "/playground", method: "post"}
                     %input#region.border-radius{name: "region", size: "25", type: "text", required: "required", placeholder: 'AWS Region'}/
+                    %p{style: "padding:10px"}/
                     %input.btn.btn-default.border-radius.pull-right{name: "commit", type: "submit", value: "Search"}/
         / /.nav-collapse
     %ul.nav.nav-tabs
