@@ -20,7 +20,7 @@
           %a.navbar-brand{href: "/"}= @title
         .collapse.navbar-collapse
           %ul.nav.navbar-nav.navbar-right
-            %li.dropdown
+            %li.dropdown.box-shadow.transition.border-radius
               %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
                 Regions
                 %b.caret
@@ -41,7 +41,7 @@
                   %a{href: '/uswest'} us-west-1
                 %li
                   %a{href: '/uswest2'} us-west-2
-            %li.dropdown
+            %li.dropdown.box-shadow.transition.border-radius
               %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
                 InDevelopment
                 %b.caret
@@ -52,11 +52,11 @@
                   %p.text-center AWS Region?
                   %form{"accept-charset" => "UTF-8", action: "/playground", method: "post"}
                     %input#region{name: "region", size: "25", style: "margin-bottom: 15px;", type: "text", required: "required"}/
-                    %input.btn.btn-primary{name: "commit", style: "clear: left; width: 100%; height: 32px; font-size: 13px;", type: "submit", value: "Search"}/
+                    %input.btn.btn-primary.border-radius{name: "commit", style: "clear: left; width: 100%; height: 32px; font-size: 13px;", type: "submit", value: "Search"}/
         / /.nav-collapse
-    .container
-      .body
-        %p.lead
+    %ul.nav.nav-tabs
+      %li.active
+        %a{"data-toggle" => "tab", href: "/#{@loc}"}= @loc
     #content= yield
     %script{src: "//code.jquery.com/jquery-1.10.2.min.js"}
     %script{src: "//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"}
