@@ -2,6 +2,7 @@
 require 'sinatra'
 require 'haml'
 require 'sinatra/graph'
+require 'fog'
 
 require_relative 'minify_resources'
 class Optimaws < Sinatra::Application

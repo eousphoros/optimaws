@@ -2,10 +2,13 @@
 %html{lang: "en"}
   %head
     %meta{charset: "utf-8"}/
-    %meta{content: "IE=edge", "http-equiv" => "X-UA-Compatible"}/
     %meta{content: "width=device-width, initial-scale=1", name: "viewport"}/
-    %meta{content: "", name: "description"}/
-    %meta{content: "", name: "author"}/
+    %meta{content: "OptimAWS", name: "description"}/
+    %meta{content: "Patrick Buckley", name: "author"}/
+    %script{src: "//code.jquery.com/jquery-1.10.2.min.js"}
+    %script{src: "//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"}
+    %link{href: "//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css", rel: "stylesheet"}/
+    %link{href: "/css/common.css", rel: "stylesheet"}/
     %link{href: "favicon.ico", rel: "shortcut icon"}/
     %title= @title 
   %body
@@ -61,7 +64,3 @@
     #content= yield
     %div.footer.pull-right
       %a{href: 'mailto:ptrck@blck.io'} ptrck@blck.io
-    %script{src: "//code.jquery.com/jquery-1.10.2.min.js"}
-    %script{src: "//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"}
-    %link{href: "//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css", rel: "stylesheet"}/
-    %link{href: "/css/common.css", rel: "stylesheet"}/

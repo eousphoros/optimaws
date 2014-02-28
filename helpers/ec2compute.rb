@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 # encoding: utf-8
-require 'fog'
 
 module EC2Compute
   REGION_LOOKUP = Set[
