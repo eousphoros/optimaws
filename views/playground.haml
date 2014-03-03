@@ -1,14 +1,26 @@
+%b Active Reserved Instance Commits
 - @reserved.each do |key,value| 
-  %h4.title= "ReservedID: #{key}"
-  %p= "InstanceID: #{value['instanceid']} Commit: #{value['duration']} year Usage: #{value['offeringType']}"
+  %p
+    %h4 
+      ReservedID: 
+      %small.text-success= "#{key} "
+      InstanceID: 
+      %small.text-success= "#{value['instanceid']} "
+      CommitTerm: 
+      %small.text-success= "#{value['duration']} year "
+      Usage: 
+      %small.text-success= "#{value['offeringType']}"
   - GraphFind.get_graphs(value['instanceType'], value['availabilityZone'][0..-2], "year#{value['duration']}", value['offeringType']).each do |file| 
     %object{ :type => "image/svg+xml", :data => "/assets/#{file}", :width => "500", :height => "250"}
 %br
 %hr
+%b Active Compute Instances
 - @output.each do |instance, values| 
-  %h4.title= "InstanceID: #{instance}"
-  %p= "InstanceType: #{values['instancetype']}, Region: #{values['region']}"
-  - values['tags'].each do |key,tags| 
-    %p= "Tag: #{key}, Value: #{tags}"
-  - GraphFind.get_graphs(values['instancetype'], values['region'], '*', '*').each do |file| 
-    %object{ :type => "image/svg+xml", :data => "/assets/#{file}", :width => "500", :height => "250"}
+  %h4 
+    InstanceID: 
+    %small.text-success= "#{instance} "
+    InstanceType: 
+    %small.text-success= "#{values['instancetype']}"
+    - values['tags'].each do |key,tags| 
+      = "#{key}: "
+      %small.text-success= "#{tags} "

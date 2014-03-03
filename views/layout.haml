@@ -28,8 +28,12 @@
                 Graphs
                 %b.caret
               %ul.dropdown-menu
-                %li
-                  %a{href: '/apacsin'} ap-southeast-1
+                %li.dropdown-submenu
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                    ap-southeast-1
+                  %ul.dropdown-menu
+                    %li
+                      %a{href: '/apacsin'} ap-southeast-1
                 %li
                   %a{href: '/apacsyd'} ap-southeast-2
                 %li
