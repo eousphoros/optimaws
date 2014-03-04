@@ -61,7 +61,6 @@ module EC2Compute
     compute = Fog::Compute.new(provider: 'AWS', use_iam_profile: true, region: region)
     reserved = compute.describe_reserved_instances
     reservedinfo = hashtree
-    puts reserved.inspect
 
     reserved.body['reservedInstancesSet'].each do |key|
       unless key['reservedInstancesId'].nil? || key['instanceCount'].to_i <= 0

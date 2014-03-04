@@ -22,7 +22,6 @@ module GraphFind
     util = util.gsub('Medium Utilization', 'medium')
     util = util.gsub('Light Utilization', 'light')
     find = "#{get_region(region)}#{term}#{util}#{type.gsub('.', '')}.svg"
-    puts "#{get_region(region)}#{term}#{util}#{type.gsub('.', '')}.svg"
     searchdir = "#{Dir.pwd}/public/assets/"
     unless Dir.exists?(searchdir)
       return found = {}
