@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 module MinifyResources
-	CSS_BLOB  = 'public/blob.css'
+	CSS_BLOB  = 'public/css/common.css'
 	CSS_DIR   = 'public/css'
 	CSS_LIST  = 'public/css/manifest.txt'
 	CSS_FILES = File.exists?(CSS_LIST) ? IO.read(CSS_LIST).scan(/\S+/) : Dir.chdir(CSS_DIR) { Dir['*.css'] }

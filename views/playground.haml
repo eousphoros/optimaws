@@ -1,26 +1,40 @@
-%b Active Reserved Instance Commits
-- @reserved.each do |key,value| 
-  %p
-    %h4 
-      ReservedID: 
-      %small.text-success= "#{key} "
-      InstanceID: 
-      %small.text-success= "#{value['instanceid']} "
-      CommitTerm: 
-      %small.text-success= "#{value['duration']} year "
-      Usage: 
-      %small.text-success= "#{value['offeringType']}"
-  - GraphFind.get_graphs(value['instanceType'], value['availabilityZone'][0..-2], "year#{value['duration']}", value['offeringType']).each do |file| 
-    %object{ :type => "image/svg+xml", :data => "/assets/#{file}", :width => "500", :height => "250"}
-%br
-%hr
-%b Active Compute Instances
-- @output.each do |instance, values| 
-  %h4 
-    InstanceID: 
-    %small.text-success= "#{instance} "
-    InstanceType: 
-    %small.text-success= "#{values['instancetype']}"
-    - values['tags'].each do |key,tags| 
-      = "#{key}: "
-      %small.text-success= "#{tags} "
+.table-responsive.row
+  .col-md-7
+    %b Active Reserved Instance Commits
+    %table.table.table-hover
+      %thead
+        %tr
+          %th Instance
+          %th Reserved Instance 
+          %th Commit
+          %th Usage Level
+      %tbody
+        - @reserved.each do |instance,value|
+          %tr
+            %td= "#{value['instanceid']}"
+            %td= "#{instance}"
+            %td= "#{value['duration']} year"
+            %td= "#{value['offeringType']}"
+          %tr
+            - GraphFind.get_graphs(value['instanceType'], value['availabilityZone'][0..-2], "year#{value['duration']}", value['offeringType']).each do |file| 
+              %td
+              %td
+                %object{ :type => "image/svg+xml", :data => "/assets/#{file}", :width => "450", :height => "250"}
+
+  .col-md-5
+    %b Active Compute Instances
+    %table.table.table-hover
+      %thead
+        %tr
+          %th Instance
+          %th Instance Type
+          %th Uptime
+          %th Tags
+      %tbody
+        - @output.each do |instance,value|
+          %tr
+            %td= "#{instance}"
+            %td= "#{value['instancetype']}"
+            %td Nil
+            - value['tags'].each do |key,tag| 
+              %td= "#{key}: #{tag}"

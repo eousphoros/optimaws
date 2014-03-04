@@ -1,7 +1,1 @@
-body {
-  padding-top: 50px;
-}
-.body {
-  padding: 40px 15px;
-  text-align: center;
-}
+body{padding-top:50px}.body{padding:40px 15px;text-align:center}.body-container{max-height:450px;width:100%;margin:0;overflow-y:auto}.table-scrollable{margin:0;padding:0}.table-contain{max-height:460px;width:50%;margin:0}
