@@ -8,3 +8,5 @@ require_relative 'ec2compute'
 Optimaws.helpers EC2Compute
 require_relative 'graphfind'
 Optimaws.helpers GraphFind
+require_relative 'cloudwatch'
+Optimaws.helpers CloudWatch

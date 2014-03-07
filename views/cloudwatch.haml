@@ -1,0 +1,27 @@
+.table-responsive.row
+  .col-md-12
+    %b CloudWatch
+    %table.table
+      %thead
+        %tr
+          %th InstanceID
+          - title = @output.first.last
+          - title.sort.each do |metric,value|
+            - unless value.to_a.empty? || metric.nil?
+              %th= metric 
+      %tbody
+        %tr
+          - @output.sort.each do |instance,metric|
+            %tr
+              %td= instance
+              - metric.sort.each do |title,key|
+                - key.each do |value| 
+                  - unless key.to_a.empty?
+                    - case value['Unit']
+                    - when 'Percent'
+                      - unit = '%'
+                    - when 'Count'
+                      - unit = ''
+                    - else
+                      - unit = value['Unit']
+                    %td= "#{value['Maximum'].round(2)} #{unit}"
