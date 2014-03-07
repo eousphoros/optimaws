@@ -1,7 +1,7 @@
 .table-responsive.row
-  .col-md-7
+  .col-md-6
     %b Active Reserved Instance Commits
-    %table.table.table-hover
+    %table.table
       %thead
         %tr
           %th Instance
@@ -9,21 +9,21 @@
           %th Commit
           %th Usage Level
       %tbody
-        - @reserved.each do |instance,value|
+        - @reserved.sort.each do |instance,value|
           %tr
             %td= "#{value['instanceid']}"
             %td= "#{instance}"
             %td= "#{value['duration']} year"
             %td= "#{value['offeringType']}"
-          %tr
+            %td
+              %a{"data-target" => "#table-collapse-#{value['instanceid']}", "data-toggle" => "collapse", "href" => "#"}
+                Graph
             - GraphFind.get_graphs(value['instanceType'], value['availabilityZone'][0..-2], "year#{value['duration']}", value['offeringType']).each do |file| 
-              %td
-              %td
-                %object{ :type => "image/svg+xml", :data => "/assets/#{file}", :width => "450", :height => "250"}
-
-  .col-md-5
+              %td.collapse.out{"id" => "table-collapse-#{value['instanceid']}"}
+                %object{ :type => "image/svg+xml", :data => "/assets/#{file}", :width => "350", :height => "350"}
+  .col-md-5.col-md-offset-1
     %b Active Compute Instances
-    %table.table.table-hover
+    %table.table
       %thead
         %tr
           %th Instance
@@ -31,10 +31,10 @@
           %th Uptime
           %th Tags
       %tbody
-        - @output.each do |instance,value|
+        - @output.sort.each do |instance,value|
           %tr
             %td= "#{instance}"
             %td= "#{value['instancetype']}"
-            %td Nil
+            %td= "#{value['uptime']} hours"
             - value['tags'].each do |key,tag| 
               %td= "#{key}: #{tag}"

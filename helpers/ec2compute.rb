@@ -33,6 +33,7 @@ module EC2Compute
         serverinfo[serverid]['instancetype'] = server.flavor_id
         serverinfo[serverid]['region'] = availabilityzone[0..-2]
         serverinfo[serverid]['availabilityzone'] = availabilityzone
+        serverinfo[serverid]['uptime'] = (Time.now.to_i - Time.parse(server.created_at.to_s).to_i) / 3600
 
         server.tags.sort.each do |key, tag|
           serverinfo[serverid]['tags'][key] = tag
