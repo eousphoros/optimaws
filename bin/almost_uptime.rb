@@ -6,7 +6,12 @@ compute = Fog::Compute.new(provider: 'AWS', use_iam_profile: true, region: ARGV[
 result = compute.servers.all
 
 result.each do |server|
-    puts "#{server.id} #{server.security_group_ids}"
+    current_time = Time.now
+    created_at = Time.parse(server.created_at.to_s)
+
+    hours = (current_time.to_i - created_at.to_i) / 3600
+    
+    puts "#{server.id} almost_uptime: #{hours} hours"
     server.tags.each do |key,value|
       puts "Tags: #{key} = #{value}" 
     end
