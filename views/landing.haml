@@ -36,16 +36,25 @@
           %th Instance
           %th Instance Type
           %th Uptime
-          %th Tags
+          %th Name
       %tbody
         - @compute.sort.each do |instance,value|
           %tr
-            %td= "#{instance}"
-            %td= "#{value['instancetype']}"
-            %td= "#{value['uptime']} hours"
-            - value['tags'].each do |key,tag| 
-              %td= "#{key}: #{tag}"
+            %td= instance
+            %td= value['instancetype']
+            - if value['uptime'] >= 25 
+              - a_uptime = (value['uptime'] / 24).round(1)
+              - hdmy = 'days'
+            - elsif value['uptime'] == 24 
+              - a_uptime = (value['uptime'] / 24).round(1)
+              - hdmy = 'day'
+            - else
+              - a_uptime = value['uptime']
+              - hdmy = 'hours'
+            %td= "#{a_uptime} #{hdmy}"
+            %td= value['tags']['Name'] unless value['tags']['Name'].nil?
           %tr
+            %td= " "
             %td= " "
             %td= " "
             %td= " "
