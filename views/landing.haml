@@ -1,0 +1,67 @@
+.table-responsive.row
+  .col-md-6
+    %b Active Reserved Instance Commits
+    %table.table
+      %thead
+        %tr
+          %th Instance
+          %th Reserved Instance 
+          %th Commit
+          %th Usage Level
+      %tbody
+        - @reserved.sort.each do |instance,value|
+          %tr
+            %td= "#{value['instanceid']}"
+            %td= "#{instance}"
+            %td= "#{value['duration']} year"
+            %td= "#{value['offeringType']}"
+            %td
+              %a{"data-target" => "#table-collapse-#{value['instanceid']}", "data-toggle" => "collapse", "href" => "#"}
+                Graph
+            - GraphFind.get_graphs(value['instanceType'], value['availabilityZone'][0..-2], "year#{value['duration']}", value['offeringType']).each do |file| 
+              %td.collapse.out{"id" => "table-collapse-#{value['instanceid']}"}
+                %object{ :type => "image/svg+xml", :data => "/assets/#{file}", :width => "350", :height => "350"}
+  .col-md-5.col-md-offset-1
+    %b Active Compute Instances
+    %table.table
+      %thead
+        %tr
+          %th Instance
+          %th Instance Type
+          %th Uptime
+          %th Tags
+      %tbody
+        - @compute.sort.each do |instance,value|
+          %tr
+            %td= "#{instance}"
+            %td= "#{value['instancetype']}"
+            %td= "#{value['uptime']} hours"
+            - value['tags'].each do |key,tag| 
+              %td= "#{key}: #{tag}"
+.table-responsive.row
+  .col-md-11
+    %b CloudWatch
+    %table.table
+      %thead
+        %tr
+          %th InstanceID
+          - title = @cloudwatch.first.last
+          - title.sort.each do |metric,value|
+            - unless value.to_a.empty? || metric.nil?
+              %th= metric 
+      %tbody
+        %tr
+          - @cloudwatch.sort.each do |instance,metric|
+            %tr
+              %td= instance
+              - metric.sort.each do |title,key|
+                - key.each do |value| 
+                  - unless key.to_a.empty?
+                    - case value['Unit']
+                    - when 'Percent'
+                      - unit = '%'
+                    - when 'Count'
+                      - unit = ''
+                    - else
+                      - unit = value['Unit']
+                    %td= "#{value['Maximum'].round(2)} #{unit}"

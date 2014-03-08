@@ -7,6 +7,6 @@ class Optimaws < Sinatra::Application
           @reserved   = EC2Compute.reserved('us-west-2')
           @cloudwatch = CloudWatch.get_metrics('us-west-2')
           @loc        = 'us-west-2'
-          haml :playground
+          haml :landing
 	end
 end
