@@ -31,10 +31,37 @@
           %th Uptime
           %th Tags
       %tbody
-        - @output.sort.each do |instance,value|
+        - @compute.sort.each do |instance,value|
           %tr
             %td= "#{instance}"
             %td= "#{value['instancetype']}"
             %td= "#{value['uptime']} hours"
             - value['tags'].each do |key,tag| 
               %td= "#{key}: #{tag}"
+.table-responsive.row
+  .col-md-11
+    %b CloudWatch
+    %table.table
+      %thead
+        %tr
+          %th InstanceID
+          - title = @cloudwatch.first.last
+          - title.sort.each do |metric,value|
+            - unless value.to_a.empty? || metric.nil?
+              %th= metric 
+      %tbody
+        %tr
+          - @cloudwatch.sort.each do |instance,metric|
+            %tr
+              %td= instance
+              - metric.sort.each do |title,key|
+                - key.each do |value| 
+                  - unless key.to_a.empty?
+                    - case value['Unit']
+                    - when 'Percent'
+                      - unit = '%'
+                    - when 'Count'
+                      - unit = ''
+                    - else
+                      - unit = value['Unit']
+                    %td= "#{value['Maximum'].round(2)} #{unit}"

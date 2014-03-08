@@ -50,6 +50,11 @@ result.each do |server|
          			}]
                  ).body['GetMetricStatisticsResult']['Datapoints']
   
-    puts resp.sort.inspect
+    resp.sort.each do |k|
+      k.sort.each do |key,value|
+        puts key
+        puts value
+      end
+    end
   end
 end

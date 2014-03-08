@@ -1,10 +1,8 @@
 module HashTree
-  attr_accessor :hashtree
-  def create
+  def new(hashtree)
     Hash.new do |hash, key|
-      hash[key] = @hashtree
+      hash[key] = hashtree
     end
   end
-  @hashtree
-  module_function :create
+  module_function :new
 end
