@@ -1,4 +1,33 @@
 .table-responsive.row
+  .col-md-11
+    %b CloudWatch
+    %table.table
+      %thead
+        %tr
+          - unless @cloudwatch.to_a.empty?
+            %th InstanceID
+            - title = @cloudwatch.first.last 
+            - title.sort.each do |metric,value|
+              - unless value.to_a.empty? || metric.nil?
+                %th= metric 
+      %tbody
+        %tr
+          - unless @cloudwatch.to_a.empty?
+            - @cloudwatch.sort.each do |instance,metric|
+              %tr
+                %td= instance
+                - metric.sort.each do |title,key|
+                  - key.each do |value| 
+                    - unless key.to_a.empty?
+                      - case value['Unit']
+                      - when 'Percent'
+                        - unit = '%'
+                      - when 'Count'
+                        - unit = ''
+                      - else
+                        - unit = value['Unit']
+                      %td= "#{value['Maximum'].round(2)} #{unit}"
+.table-responsive.row
   .col-md-6
     %b Active Compute Instances
     %table.table
@@ -16,6 +45,10 @@
             %td= "#{value['uptime']} hours"
             - value['tags'].each do |key,tag| 
               %td= "#{key}: #{tag}"
+          %tr
+            %td= " "
+            %td= " "
+            %td= " "
   .col-md-6
     %b Active Reserved Instance Commits
     %table.table
@@ -46,30 +79,3 @@
               %td= " "
               %td= " "
               %td= " "
-.table-responsive.row
-  .col-md-11
-    %b CloudWatch
-    %table.table
-      %thead
-        %tr
-          %th InstanceID
-          - title = @cloudwatch.first.last
-          - title.sort.each do |metric,value|
-            - unless value.to_a.empty? || metric.nil?
-              %th= metric 
-      %tbody
-        %tr
-          - @cloudwatch.sort.each do |instance,metric|
-            %tr
-              %td= instance
-              - metric.sort.each do |title,key|
-                - key.each do |value| 
-                  - unless key.to_a.empty?
-                    - case value['Unit']
-                    - when 'Percent'
-                      - unit = '%'
-                    - when 'Count'
-                      - unit = ''
-                    - else
-                      - unit = value['Unit']
-                    %td= "#{value['Maximum'].round(2)} #{unit}"
