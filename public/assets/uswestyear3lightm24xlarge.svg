@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1156.32" height="650.43" viewBox="0,0,1156.32,650.43">
+<svg xmlns="http://www.w3.org/2000/svg" width="361.35" height="361.35" viewBox="0,0,361.35,361.35">
 <desc>R SVG Plot!</desc>
 <rect width="100%" height="100%" style="fill:#FFFFFF"/>
-<polyline points="75.08 , 586.68 1097.91 , 55.42 " style="stroke-width:1;stroke:#FF0000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
-<line x1="75.08" y1="607.93" x2="1009.17" y2="607.93" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
-<line x1="75.08" y1="607.93" x2="75.08" y2="612.10" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
-<line x1="261.90" y1="607.93" x2="261.90" y2="612.10" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
-<line x1="448.72" y1="607.93" x2="448.72" y2="612.10" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
-<line x1="635.53" y1="607.93" x2="635.53" y2="612.10" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
-<line x1="822.35" y1="607.93" x2="822.35" y2="612.10" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
-<line x1="1009.17" y1="607.93" x2="1009.17" y2="612.10" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
-<text transform="translate(72.58,624.60)"  style="font-size:10" >0</text>
-<text transform="translate(253.65,624.60)"  style="font-size:10" >200</text>
-<text transform="translate(440.47,624.60)"  style="font-size:10" >400</text>
-<text transform="translate(627.28,624.60)"  style="font-size:10" >600</text>
-<text transform="translate(814.10,624.60)"  style="font-size:10" >800</text>
-<text transform="translate(998.17,624.60)"  style="font-size:10" >1000</text>
-<line x1="34.17" y1="586.68" x2="34.17" y2="37.35" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
-<line x1="34.17" y1="586.68" x2="30.00" y2="586.68" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
-<line x1="34.17" y1="476.81" x2="30.00" y2="476.81" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
-<line x1="34.17" y1="366.95" x2="30.00" y2="366.95" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
-<line x1="34.17" y1="257.08" x2="30.00" y2="257.08" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
-<line x1="34.17" y1="147.21" x2="30.00" y2="147.21" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
-<line x1="34.17" y1="37.35" x2="30.00" y2="37.35" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
-<text transform="translate(25.83,589.43) rotate(-90)"  style="font-size:10" >0</text>
-<text transform="translate(25.83,490.56) rotate(-90)"  style="font-size:10" >10000</text>
-<text transform="translate(25.83,380.70) rotate(-90)"  style="font-size:10" >20000</text>
-<text transform="translate(25.83,270.83) rotate(-90)"  style="font-size:10" >30000</text>
-<text transform="translate(25.83,160.96) rotate(-90)"  style="font-size:10" >40000</text>
-<text transform="translate(25.83,51.10) rotate(-90)"  style="font-size:10" >50000</text>
-<polyline points="34.17 , 607.93 1138.82 , 607.93 1138.82 , 34.17 34.17 , 34.17 34.17 , 607.93 " style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
-<text transform="translate(574.66,641.26)"  style="font-size:10" >Time</text>
-<text transform="translate(9.17,349.52) rotate(-90)"  style="font-size:10" >cost ($USD)</text>
-<text transform="translate(440.82,17.08)"  style="font-size:12" >Utilization: light Region: us-west Instance: m2.4xlarge</text>
-<text transform="translate(437.88,27.08)"  style="font-size:12" >year3 term is cheaper than on-demand after 56 days of usage</text>
-<text transform="translate(80.87,582.49)"  style="font-size:10" >on-demand=$1.84/hour</text>
-<line x1="34.17" y1="576.86" x2="1138.82" y2="369.80" style="stroke-width:1;stroke:#00FF00;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
-<circle cx="127.77" cy="559.31" r="2.34" style="stroke-width:1;stroke:#000000;fill:#FFFFFF;stroke-opacity:1.000000;fill-opacity:0.000000" />
-<text transform="translate(110.95,567.65)"  style="font-size:10" >56 days</text>
+<polyline points="45.64 , 308.31 332.38 , 44.71 " style="stroke-width:1;stroke:#FF0000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<line x1="45.64" y1="318.85" x2="307.50" y2="318.85" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<line x1="45.64" y1="318.85" x2="45.64" y2="323.02" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<line x1="98.01" y1="318.85" x2="98.01" y2="323.02" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<line x1="150.38" y1="318.85" x2="150.38" y2="323.02" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<line x1="202.76" y1="318.85" x2="202.76" y2="323.02" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<line x1="255.13" y1="318.85" x2="255.13" y2="323.02" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<line x1="307.50" y1="318.85" x2="307.50" y2="323.02" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<text transform="translate(43.14,335.52)"  style="font-size:10" >0</text>
+<text transform="translate(89.76,335.52)"  style="font-size:10" >200</text>
+<text transform="translate(142.13,335.52)"  style="font-size:10" >400</text>
+<text transform="translate(194.51,335.52)"  style="font-size:10" >600</text>
+<text transform="translate(246.88,335.52)"  style="font-size:10" >800</text>
+<text transform="translate(296.50,335.52)"  style="font-size:10" >1000</text>
+<line x1="34.17" y1="308.31" x2="34.17" y2="35.74" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<line x1="34.17" y1="308.31" x2="30.00" y2="308.31" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<line x1="34.17" y1="253.79" x2="30.00" y2="253.79" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<line x1="34.17" y1="199.28" x2="30.00" y2="199.28" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<line x1="34.17" y1="144.77" x2="30.00" y2="144.77" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<line x1="34.17" y1="90.26" x2="30.00" y2="90.26" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<line x1="34.17" y1="35.74" x2="30.00" y2="35.74" style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<text transform="translate(25.83,311.06) rotate(-90)"  style="font-size:10" >0</text>
+<text transform="translate(25.83,267.54) rotate(-90)"  style="font-size:10" >10000</text>
+<text transform="translate(25.83,213.03) rotate(-90)"  style="font-size:10" >20000</text>
+<text transform="translate(25.83,158.52) rotate(-90)"  style="font-size:10" >30000</text>
+<text transform="translate(25.83,104.01) rotate(-90)"  style="font-size:10" >40000</text>
+<text transform="translate(25.83,49.49) rotate(-90)"  style="font-size:10" >50000</text>
+<polyline points="34.17 , 318.85 343.85 , 318.85 343.85 , 34.17 34.17 , 34.17 34.17 , 318.85 " style="stroke-width:1;stroke:#000000;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<text transform="translate(177.17,352.18)"  style="font-size:10" >Time</text>
+<text transform="translate(9.17,204.98) rotate(-90)"  style="font-size:10" >cost ($USD)</text>
+<text transform="translate(43.33,17.08)"  style="font-size:12" >Utilization: light Region: us-west Instance: m2.4xlarge</text>
+<text transform="translate(40.39,27.08)"  style="font-size:12" >year3 term is cheaper than on-demand after 56 days of usage</text>
+<line x1="34.17" y1="303.43" x2="343.85" y2="200.70" style="stroke-width:1;stroke:#00FF00;fill:#000000;stroke-opacity:1.000000;fill-opacity:0.000000"/>
+<text transform="translate(140.80,295.46)"  style="font-size:10" >Reserved=$1592+$0.66/hour</text>
+<circle cx="60.41" cy="294.73" r="2.34" style="stroke-width:1;stroke:#000000;fill:#FFFFFF;stroke-opacity:1.000000;fill-opacity:0.000000" />
+<text transform="translate(43.59,303.06)"  style="font-size:10" >56 days</text>
 </svg>

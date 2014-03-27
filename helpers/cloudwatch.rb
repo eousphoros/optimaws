@@ -18,7 +18,7 @@ module CloudWatch
       cloudwatch = Fog::AWS::CloudWatch.new(use_iam_profile: true, region: region)
       result.each do |server, value|
         instanceId     = server
-        metricList     = 'CPUUtilization', 'DiskReadBytes', 'DiskReadOps', 'DiskWriteBytes', 'DiskWriteOps', 'NetworkIn', 'NetworkOut', 'NumberOfMessagesPublished', 'NumberOfNotificationsDelivered', 'NumberOfNotificationsFailed', 'PublishSize', 'StatusCheckFailed', 'StatusCheckFailed_Instance', 'StatusCheckFailed_System', 'VolumeIdleTime', 'VolumeQueueLength', 'VolumeReadBytes', 'VolumeReadOps', 'VolumeTotalReadTime', 'VolumeTotalWriteTime', 'VolumeWriteBytes', 'VolumeWriteOps'
+        metricList     = 'CPUUtilization', 'NetworkIn', 'NetworkOut', 'StatusCheckFailed', 'StatusCheckFailed_Instance', 'StatusCheckFailed_System'
         namespace      = 'AWS/EC2'
         period         = 3600
         statisticTypes = 'Maximum', 'Minimum', 'Average', 'SampleCount'
